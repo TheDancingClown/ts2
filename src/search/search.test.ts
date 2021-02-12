@@ -1,4 +1,4 @@
-import { search } from './search'
+import { find_talent } from './search'
 
 const example = [
   {
@@ -23,8 +23,31 @@ const example = [
   }
 ]
 
-describe('search', () => {
-  it('returns Diane Nguyen', () => {
-    expect(search('Los Angeles', example)).toEqual('Diane Nguyen')
+describe('find_talent', () => {
+  it('returns array containing Diane Nguyen', () => {
+    expect(find_talent('Los Angeles', example)).toEqual([{
+      "name": "Diane Nguyen",
+      "location": "Los Angeles",
+      "date_of_birth": "1980-03-19"
+    }])
+  })
+
+  it('returns an array containg Frank Reynolds', () => {
+    expect(find_talent('Philidelphia', example)).toEqual([{
+      "name": "Frank Reynolds",
+      "location": "Philidelphia",
+      "date_of_birth": "1944-11-17"
+    }])
+  })
+  it('returns an array of multiple matches', () => {
+    expect(find_talent('Springfield', example)).toEqual([{
+      "name": "Homer Simpson",
+      "location": "Springfield",
+      "date_of_birth": "1956-05-12"
+    },{
+      "name": "Krusty the Clown",
+      "location": "SpringField",
+      "date_of_birth": "1957-10-29"
+    }])
   })
 })
