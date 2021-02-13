@@ -1,4 +1,4 @@
-import { find_talent } from './search'
+import { TalentFilterByLocation } from './filter'
 
 const example = [
   {
@@ -23,22 +23,22 @@ const example = [
   }
 ]
 
-describe('find_talent', () => {
-
+describe('find_talent_by_location', () => {
+  const filter = new TalentFilterByLocation()
   it('returns an array containg a match', () => {
-    expect(find_talent('Philidelphia', example)).toEqual([{
+    expect(filter.find_talent(example, 'Philidelphia')).toEqual([{
       "name": "Frank Reynolds",
       "location": "Philidelphia",
       "date_of_birth": "1944-11-17"
     }])
-    expect(find_talent('Los Angeles', example)).toEqual([{
+    expect(filter.find_talent(example, 'Los Angeles')).toEqual([{
       "name": "Diane Nguyen",
       "location": "Los Angeles",
       "date_of_birth": "1980-03-19"
     }])
   })
   it('can return multiple matches', () => {
-    expect(find_talent('Springfield', example)).toEqual([{
+    expect(filter.find_talent(example, 'Springfield')).toEqual([{
       "name": "Homer Simpson",
       "location": "Springfield",
       "date_of_birth": "1956-05-12"
@@ -49,7 +49,7 @@ describe('find_talent', () => {
     }])
   })
   it('returns an empty array if no match', () => {
-    expect(find_talent('New York', example)).toEqual([])
+    expect(filter.find_talent(example, 'New York')).toEqual([])
   })
   
 })
