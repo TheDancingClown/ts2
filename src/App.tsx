@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import SearchForm from './components/SearchForm'
 
 function App() {
   return (
@@ -8,7 +9,9 @@ function App() {
         <h1>
           Contact
         </h1>
+        <SearchForm placeholder='Enter a location to search'/>
       </header>
+      
     </div>
   );
 }
