@@ -24,22 +24,20 @@ const example = [
 ]
 
 describe('find_talent', () => {
-  it('returns array containing Diane Nguyen', () => {
+
+  it('returns an array containg a match', () => {
+    expect(find_talent('Philidelphia', example)).toEqual([{
+      "name": "Frank Reynolds",
+      "location": "Philidelphia",
+      "date_of_birth": "1944-11-17"
+    }])
     expect(find_talent('Los Angeles', example)).toEqual([{
       "name": "Diane Nguyen",
       "location": "Los Angeles",
       "date_of_birth": "1980-03-19"
     }])
   })
-
-  it('returns an array containg Frank Reynolds', () => {
-    expect(find_talent('Philidelphia', example)).toEqual([{
-      "name": "Frank Reynolds",
-      "location": "Philidelphia",
-      "date_of_birth": "1944-11-17"
-    }])
-  })
-  it('returns an array of multiple matches', () => {
+  it('can return multiple matches', () => {
     expect(find_talent('Springfield', example)).toEqual([{
       "name": "Homer Simpson",
       "location": "Springfield",
@@ -50,4 +48,5 @@ describe('find_talent', () => {
       "date_of_birth": "1957-10-29"
     }])
   })
+  
 })
