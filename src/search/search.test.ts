@@ -48,5 +48,8 @@ describe('find_talent', () => {
       "date_of_birth": "1957-10-29"
     }])
   })
+  it('returns an empty array if no match', () => {
+    expect(find_talent('New York', example)).toEqual([])
+  })
   
 })
