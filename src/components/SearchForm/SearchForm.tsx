@@ -6,7 +6,7 @@ const SearchForm = (props: {
   header: string
 }) => {
 
-  const [textEntered, setTextEntered] = useState('')
+  const [textEntered, setTextEntered] = useState('');
 
   return (
     <div>
@@ -21,7 +21,7 @@ const SearchForm = (props: {
       className='SearchButton' 
       onClick={() => props.onClickHandler(textEntered)}>Search</button>
     </div>
-  )
-}
+  );
+};
 
-export default SearchForm
+export default SearchForm;

@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import './App.css';
-import SearchForm from './components/SearchForm/SearchForm'
-import ResultsDisplay from './components/ResultsDisplay/ResultsDisplay'
-import { TalentFilter, TalentFilterByLocation, Talent } from './utils/filter'
-import data from './data/example.json'
+import SearchForm from './components/SearchForm/SearchForm';
+import ResultsDisplay from './components/ResultsDisplay/ResultsDisplay';
+import { TalentFilter, TalentFilterByLocation, Talent } from './utils/filter';
+import data from './data/example.json';
 
 const App = () => {
 
-  const [talentPool, filterTalentPool] = useState<Talent[]>([])
+  const [talentPool, filterTalentPool] = useState<Talent[]>(data);
 
   const filter_data = async (talent_filter: typeof TalentFilter, arg2: string) => {
-    const filter = new talent_filter()
-    let result = filter.find_talent(data, arg2)
-    filterTalentPool(result)
-    
+    const filter = new talent_filter();
+    filterTalentPool(filter.find_talent(data, arg2));
   }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -26,9 +25,8 @@ const App = () => {
         />
         <ResultsDisplay data={talentPool}/>
       </header>
-      
     </div>
   );
-}
+};
 
 export default App;
