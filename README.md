@@ -1,5 +1,7 @@
 # Talent Search
 
+A tech test to practice SOLID principles.
+
 ## Requirements
 
 To build a program that accepts two inputs:
@@ -29,16 +31,28 @@ Create React App with Typescript template.
 No additional dependencies added.    
 Tested with Jest
 
-## Testing
+## Instructions
 
-Jest    
+Clone the program to your machine
+````
+git clone https://github.com/TheDancingClown/ts2.git
+````
+Install dependencies
+````
+npm install
+````
+Run the program
+````
+npm start
+````
+The program will open a browser on localhost:3000
+
+## Testing
+  
 To run tests
 ````
 npm test
 ````
-or
-````
-yarn test
-````
+
 
 
