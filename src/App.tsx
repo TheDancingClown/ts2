@@ -1,25 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import SearchForm from './components/SearchForm'
+import SearchForm from './components/SearchForm/SearchForm'
+import ResultsDisplay from './components/ResultsDisplay/ResultsDisplay'
+import { TalentFilter, TalentFilterByLocation, Talent } from './utils/filter'
 import data from './data/example.json'
-import { TalentFilter, TalentFilterByLocation } from './utils/filter'
 
 const App = () => {
-  const filter_data = (talent_filter: typeof TalentFilter, arg2: string) => {
+
+  const [talentPool, filterTalentPool] = useState<Talent[]>([])
+
+  const filter_data = async (talent_filter: typeof TalentFilter, arg2: string) => {
     const filter = new talent_filter()
-    const result = filter.find_talent(data, arg2)
-    console.log(result)
+    let result = filter.find_talent(data, arg2)
+    filterTalentPool(result)
+    
   }
   return (
     <div className="App">
       <header className="App-header">
-        <h1>
-          Contact
-        </h1>
-        <SearchForm 
-        placeholder='Enter a location to search' 
+        <h1>Contact</h1>
+        <SearchForm
+        header='Enter a city and press Search'
+        placeholder='Enter a location' 
         onClickHandler={(arg01) => filter_data(TalentFilterByLocation, arg01)}
         />
+        <ResultsDisplay data={talentPool}/>
       </header>
       
     </div>

@@ -3,7 +3,12 @@ import { render, screen } from '@testing-library/react';
 import SearchForm from './SearchForm';
 
 it('renders the search field', () => {
-  render(<SearchForm placeholder='Enter a location to search' onClickHandler={() => {}}/>);
+  render(<SearchForm 
+    placeholder='Enter a location to search' 
+    onClickHandler={() => {}}
+    header='Location'/>);
+  const header = screen.getByText('Location')
+  expect(header).toBeInTheDocument();
   const searchField = screen.getByPlaceholderText('Enter a location to search');
   expect(searchField).toBeInTheDocument();
   const searchButton = screen.getByText('Search');

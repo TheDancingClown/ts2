@@ -24,3 +24,4 @@ class TalentFilterByLocation extends TalentFilter {
 }
 
 export { TalentFilter, TalentFilterByLocation }
+export type { Talent }
