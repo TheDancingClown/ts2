@@ -7,7 +7,7 @@ type Talent = {
 class TalentFilter {
   searchParameter: string;
   
-  constructor(searchParameter: string) {
+  constructor(searchParameter = '') {
     this.searchParameter = searchParameter
   }
 
@@ -23,4 +23,4 @@ class TalentFilterByLocation extends TalentFilter {
   }
 }
 
-export { TalentFilterByLocation }
+export { TalentFilter, TalentFilterByLocation }
