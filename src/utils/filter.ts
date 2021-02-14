@@ -1,6 +1,6 @@
 type Talent = {
-  name:string,
-  [location: string]: string,
+  [name:string]:string,
+  location: string,
   date_of_birth: string
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const SearchForm = (props: { 
   placeholder: string; 
@@ -10,7 +10,7 @@ const SearchForm = (props: {
 
   return (
     <div>
-      <h3>{props.header}</h3>
+      <h3 className='Instructions'>{props.header}</h3>
       <input 
       className='SearchInput' 
       type='text' 

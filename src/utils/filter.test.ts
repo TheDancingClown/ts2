@@ -1,7 +1,7 @@
 import { TalentFilterByLocation } from './filter';
 import data from '../data/example.json';
 
-describe('find_talent_by_location', () => {
+describe('TalentFilterByLocation', () => {
   const filter = new TalentFilterByLocation()
   it('returns an array containg a match', () => {
     expect(filter.find_talent(data, 'Philidelphia')).toEqual([{
