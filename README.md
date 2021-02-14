@@ -32,10 +32,15 @@ No additional dependencies added.
 Tested with Jest
 
 ## Instructions
+The app can be run [here](https://focused-hopper-650648.netlify.app/) or for a local version:    
 
 Clone the program to your machine
 ````
 git clone https://github.com/TheDancingClown/ts2.git
+````
+Navigate into the directory
+````
+cd ts2
 ````
 Install dependencies
 ````
