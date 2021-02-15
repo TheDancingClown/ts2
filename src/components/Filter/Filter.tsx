@@ -8,6 +8,14 @@ const Filter = () => {
 
   const [talentPool, filterTalentPool] = useState<Talent[]>(data);
 
+  /**
+   * Sets the talentPool state to the filtered results array
+   * 
+   * @param talent_filter - a type of TalentFilter class to be instantiated
+   * @param arg2 - a value to filter by
+   * @returns Void
+   * 
+   */
   const filter_data = async (talent_filter: typeof TalentFilter, arg2: string) => {
     const filter = new talent_filter();
     filterTalentPool(filter.find_talent(data, arg2));
