@@ -15,14 +15,18 @@ it('renders the names in the data', () => {
       "date_of_birth": "1913-07-19"
     }]}
     />);
+    
   const randall = screen.getByText('Randall Flagg');
-  expect(randall).toBeInTheDocument();
   const abigail = screen.getByText('Mother Abigail');
+
+  expect(randall).toBeInTheDocument();
   expect(abigail).toBeInTheDocument();
 });
 
 it('renders a message for no matches', () => {
   render(<ResultsDisplay data={[]}/>);
+
   const message = screen.getByText('No matches found');
+
   expect(message).toBeInTheDocument();
 });

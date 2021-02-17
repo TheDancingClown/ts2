@@ -1,32 +1,24 @@
 import React, { useState } from 'react'
 import SearchForm from '../SearchForm/SearchForm';
 import ResultsDisplay from '../ResultsDisplay/ResultsDisplay';
-import { TalentFilter, TalentFilterByLocation, Talent } from '../../utils/filter';
+import { findTalentByLocation } from '../../utils/filter';
 import data from '../../data/example.json';
+import type { Talent } from '../../utils/filter'
 
 const Filter = () => {
 
   const [talentPool, filterTalentPool] = useState<Talent[]>(data);
 
-  /**
-   * Sets the talentPool state to the filtered results array
-   * 
-   * @param talent_filter - a type of TalentFilter class to be instantiated
-   * @param arg2 - a value to filter by
-   * @returns Void
-   * 
-   */
-  const filter_data = async (talent_filter: typeof TalentFilter, arg2: string) => {
-    const filter = new talent_filter();
-    filterTalentPool(filter.find_talent(data, arg2));
-  };
+  const displayFilteredResults = async (callback: (data:Talent[], searchValue:string)=>Talent[], data: Talent[], searchValue: string) => {
+    await filterTalentPool(callback(data, searchValue))
+  }
 
   return(
     <div>
       <SearchForm
       header='Enter a city and press Search to filter talent'
       placeholder='Enter a location' 
-      onClickHandler={(location) => filter_data(TalentFilterByLocation, location)}
+      onClickHandler={(location) => displayFilteredResults(findTalentByLocation, data, location)}
       />
       <button className="Reset-button" onClick={() => filterTalentPool(data)}>Reset</button>
       <ResultsDisplay data={talentPool}/>

@@ -4,31 +4,14 @@ type Talent = {
   date_of_birth: string
 };
 
-class TalentFilter {
-  searchParameter: string;
-  
-  constructor(searchParameter = '') {
-    this.searchParameter = searchParameter;
-  };
-/**
- * Returns an array of talent objects using a searchParameter attribute key as specified in the constructor
- * 
- * @param data - an array of all talent objects
- * @param searchQuery - a string to filter against the attribute value
- * @returns Returns an array of matching Talent objects
- * 
- */
-  find_talent = (data: Talent[], searchQuery: string):Talent[] => {
-    return data.filter(talent => talent[this.searchParameter].toLowerCase() === searchQuery.toLowerCase());
-  };
+const findTalentByLocation = (data: Talent[], searchValue: string):Talent[] => {
+  const searchKey = 'location'
+  return findMatchingData(data, searchValue, searchKey)
 };
 
-class TalentFilterByLocation extends TalentFilter {
-  
-  constructor(searchParameter = 'location') {
-    super(searchParameter);
-  };
-};
+const findMatchingData = (data: Talent[], searchValue: string, searchKey: string) => {
+  return data.filter(talent => talent[searchKey].toLowerCase() === searchValue.toLowerCase());
+}
 
-export { TalentFilter, TalentFilterByLocation };
+export { findTalentByLocation };
 export type { Talent };

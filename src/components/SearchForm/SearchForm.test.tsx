@@ -7,10 +7,12 @@ it('renders the search field and text', () => {
     placeholder='Enter a location' 
     onClickHandler={() => {}}
     header='Location'/>);
+    
   const header = screen.getByText('Location');
-  expect(header).toBeInTheDocument();
   const searchField = screen.getByPlaceholderText('Enter a location');
-  expect(searchField).toBeInTheDocument();
   const searchButton = screen.getByText('Search');
+
+  expect(header).toBeInTheDocument();
+  expect(searchField).toBeInTheDocument();
   expect(searchButton).toBeInTheDocument();
 });

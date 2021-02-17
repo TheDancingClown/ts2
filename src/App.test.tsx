@@ -4,6 +4,8 @@ import App from './App';
 
 test('renders the Contact heading', () => {
   render(<App />);
+
   const linkElement = screen.getByText(/Contact/i);
+  
   expect(linkElement).toBeInTheDocument();
 });

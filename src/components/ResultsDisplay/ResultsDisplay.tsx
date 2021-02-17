@@ -1,4 +1,4 @@
-import { Talent } from '../../utils/filter';
+import type { Talent } from '../../utils/filter';
 
 const ResultsDisplay = (props: { data: Talent[] }) => {
   return(
