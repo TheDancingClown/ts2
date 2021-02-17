@@ -9,7 +9,7 @@ const Filter = () => {
 
   const [talentPool, filterTalentPool] = useState<Talent[]>(data);
 
-  const displayFilteredResults = async (callback: (data:Talent[], searchValue:string)=>Talent[], data: Talent[], searchValue: string) => {
+  const displayFilteredResults = async (callback: (data: Talent[], searchValue:string)=>Talent[], searchValue: string) => {
     await filterTalentPool(callback(data, searchValue))
   }
 
@@ -18,7 +18,7 @@ const Filter = () => {
       <SearchForm
       header='Enter a city and press Search to filter talent'
       placeholder='Enter a location' 
-      onClickHandler={(location) => displayFilteredResults(findTalentByLocation, data, location)}
+      onClickHandler={(location) => displayFilteredResults(findTalentByLocation, location)}
       />
       <button className="Reset-button" onClick={() => filterTalentPool(data)}>Reset</button>
       <ResultsDisplay data={talentPool}/>
